@@ -8,9 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-src';
   imageFile: any;
-  // base64s
   imgBase64: string;
-  imageSource = '';
+  imageSource: any = '';
   public picked(event: any) {
     const fileList: FileList = event.target.files;
     if (fileList.length > 0) {
@@ -22,7 +21,7 @@ export class AppComponent {
     }
   }
 
-  handleInputChange(files) {
+  handleInputChange(files: any) {
     const file = files;
     const pattern = /image-*/;
     const reader = new FileReader();
@@ -33,7 +32,7 @@ export class AppComponent {
     reader.onloadend = this._handleReaderLoaded.bind(this);
     reader.readAsDataURL(file);
   }
-  _handleReaderLoaded(e) {
+  _handleReaderLoaded(e: any) {
     const reader = e.target;
     const base64result = reader.result.substr(reader.result.indexOf(',') + 1);
 
